@@ -2,6 +2,16 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Model class required by tests
+class Event:
+    def __init__(self, id, title, description="", date="", location=""):
+        self.id = id
+        self.title = title
+        self.description = description
+        self.date = date
+        self.location = location
+
+# In-memory database
 events = []
 next_id = 1
 
